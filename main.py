@@ -1,4 +1,4 @@
-# We 'import' the classes you just wrote in models.py
+# We 'import' the classes from the src package
 from src.models import MarketEvent, ComparisonResult
 
 def main():

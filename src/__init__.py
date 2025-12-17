@@ -1,0 +1,1 @@
+"""Market Oracle - Compare prediction markets with traditional betting markets."""
