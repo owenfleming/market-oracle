@@ -9,27 +9,16 @@ description = "Compare prediction markets with traditional betting markets"
 readme = "README.md"
 license = {file = "LICENSE"}
 requires-python = ">=3.8"
-classifiers = [
-    "Development Status :: 3 - Alpha",
-    "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-]
 dependencies = []
 
 [project.optional-dependencies]
 dev = ["pytest", "black", "flake8"]
 
-[project.scripts]
-market-oracle = "market_oracle.cli:main"
-
 [tool.setuptools.packages.find]
-where = ["src"]
+where = ["."]
 
 [tool.setuptools.package-dir]
-"" = "src"
+"" = "."
+
+[tool.setuptools.packages]
+find = {}

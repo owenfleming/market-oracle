@@ -1,5 +1,5 @@
 # We 'import' the classes you just wrote in models.py
-from market_oracle import MarketEvent, ComparisonResult
+from models import MarketEvent, ComparisonResult
 
 def main():
     print("🚀 Starting MarketOracle Analysis...\n")

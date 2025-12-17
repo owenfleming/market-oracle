@@ -1,6 +1,6 @@
 class MarketEvent:
     """
-    Represents a specific event (e.g., a game or an election) 
+    Represents a specific event (e.g., a game or an election)
     from a specific data source.
     """
     def __init__(self, event_name: str, source_name: str, probability: float):
@@ -18,9 +18,10 @@ class MarketEvent:
         """This tells Python how to 'print' the object so it's readable."""
         return f"[{self.source_name}] {self.event_name}: {self.probability*100}%"
 
+
 class ComparisonResult:
     """
-    An object specifically designed to hold the results of 
+    An object specifically designed to hold the results of
     comparing two different sources.
     """
     def __init__(self, event_a: MarketEvent, event_b: MarketEvent):
