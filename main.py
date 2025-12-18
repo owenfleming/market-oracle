@@ -1,27 +1,26 @@
-# We 'import' the classes from the src package
-from src.models import MarketEvent, ComparisonResult
+from src.fetcher import PolymarketFetcher
 
 def main():
-    print("🚀 Starting MarketOracle Analysis...\n")
+    fetcher = PolymarketFetcher()
+    
+    # Now we can mix IDs, Event Slugs, and Market Slugs!
+    mixed_inputs = [
+        "super-bowl-champion-2026-731",                                           # Numeric ID
+        "democratic-presidential-nominee-2028", # Market Slug
+        "cfb-mia-txam-2025-12-20"                             # Event Slug
+    ]
 
-    # 1. Create a "Prediction Market" object (e.g., from Polymarket)
-    poly_event = MarketEvent(
-        event_name="Lakers vs Celtics",
-        source_name="Polymarket",
-        probability=0.65  # 65% chance Lakers win
-    )
+    print("🚀 MarketOracle: Smart Analysis...\n")
 
-    # 2. Create a "Sportsbook" object (e.g., from DraftKings)
-    book_event = MarketEvent(
-        event_name="Lakers vs Celtics",
-        source_name="DraftKings",
-        probability=0.55  # 55% chance Lakers win
-    )
+    for item in mixed_inputs:
+        print(f"🔍 Looking up: {item}...")
+        event = fetcher.get_market(item) # <--- The new smart method
+        
+        if event:
+            print(f"✅ Found: {event.event_name}")
+            print(f"📊 Probability: {round(event.probability * 100, 1)}%\n")
+        else:
+            print(f"❌ Not found.\n")
 
-    # 3. Use your Comparison class to analyze them
-    analysis = ComparisonResult(poly_event, book_event)
-    analysis.report()
-
-# The 'Professional' Entry Point
 if __name__ == "__main__":
     main()
